@@ -9,7 +9,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-app.post('/api', (req, res) => {
+app.post('/sensor-arduino', (req, res) => {
   // Verifica se a variável "detection" está presente no corpo da requisição
   console.log(req.body.detection);
   if (req.body && req.body.detection) {
@@ -20,8 +20,11 @@ app.post('/api', (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Servidor está rodando em http://localhost:${port}`);
+app.listen( 
+ {
+  host:'0.0.0.0',
+  port: process.env.PORT? Number(process.env.PORT): 3333,
+  
 });
 
 
@@ -54,3 +57,4 @@ bot.on('message', (message) => {
 
 
 
+console.log('HTTP Server Running');
