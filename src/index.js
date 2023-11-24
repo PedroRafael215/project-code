@@ -40,7 +40,7 @@ let cond = true;
 const bot = new telegramBot(TOKEN/*, {polling: true}*/);
 //
 if(bot.isPolling()) {
-  await bot.stopPolling();
+   bot.stopPolling();
   }
   bot.startPolling();
 bot.on('message', (message) => {
