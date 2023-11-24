@@ -17,7 +17,11 @@ app.use(bodyParser.json());
 app.post('/arduino', (req, res) => {
   // Verifica se a variável "detection" está presente no corpo da requisição
   console.log(req.body);
-  console.log(req.body.detection);
+
+  console.log(req.body[0].detection);
+  console.log(req.body[0].value);
+
+  //console.log(req.body.detection);
   if (req.body && req.body.detection) {
     const valorDetection = req.body.detection;
     res.status(200).json({ mensagem: `Valor de detection recebido: ${valorDetection}` });
@@ -38,9 +42,7 @@ app.post('/arduino', (req, res) => {
       if(message.text!= "/command1" && message.text!= "/command2")
       {
           bot.sendMessage(chatId, 'Por favor, especifique um comando válido disponível');
-          bot.sendMessage(chatId, `/command1 - para Habilitar o Sensor
-          \n\n\n/command2 - para Desabilitar o Sensor`);
-  
+          bot.sendMessage(chatId, `/command1 - para Habilitar o Sensor\n/command2 - para Desabilitar o Sensor`);
       }
   
   });
