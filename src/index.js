@@ -68,7 +68,7 @@ bot.on('message', (message) => {
     
     }
 
-    bot.stopPolling();
+    
 });
 
 
