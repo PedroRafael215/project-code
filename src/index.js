@@ -38,9 +38,9 @@ const TOKEN = process.env.TOKEN;
 let cond = true;
 const bot = new telegramBot(TOKEN, {polling: true});
 if(bot.isPolling()) {
-  await bot.stopPolling();
+   bot.stopPolling();
   }
-  await bot.startPolling();
+  bot.startPolling();
 bot.on('message', (message) => {
     console.log("Pedro says: "+ message.text);
     if (message.text == '-DETECTADO-' ) {
@@ -68,7 +68,8 @@ bot.on('message', (message) => {
 
     
 });
-await bot.stopPolling();
+
+bot.stopPolling();
 
 
 console.log('HTTP Server Running');
