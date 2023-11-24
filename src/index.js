@@ -36,8 +36,11 @@ require('dotenv').config();
 
 const TOKEN = process.env.TOKEN;
 let cond = true;
-const bot = new telegramBot(TOKEN, {polling: true});
+const bot = new telegramBot(TOKEN/*, {polling: true}*/);
 //
+if(bot.isPolling()) {
+  await bot.stopPolling();
+  }
   bot.startPolling();
 bot.on('message', (message) => {
     console.log("Pedro says: "+ message.text);
@@ -64,10 +67,10 @@ bot.on('message', (message) => {
     
     }
 
-    
+    bot.stopPolling();
 });
 
-//bot.stopPolling();
+
 
 
 console.log('HTTP Server Running');
