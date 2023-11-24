@@ -9,7 +9,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-app.post('/sensor-arduino', (req, res) => {
+app.post('/', (req, res) => {
   // Verifica se a variável "detection" está presente no corpo da requisição
   console.log(req.body.detection);
   if (req.body && req.body.detection) {
