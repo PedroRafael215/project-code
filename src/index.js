@@ -35,14 +35,22 @@ const TelegramBot = require('node-telegram-bot-api/lib/telegram');
 require('dotenv').config();
 
 const TOKEN = process.env.TOKEN;
-
+let cond = true;
 const bot = new telegramBot(TOKEN, {polling: true});
 
 bot.on('message', (message) => {
     console.log("Pedro says: "+ message.text);
     if (message.text == '-DETECTADO-' ) {
       bot.sendMessage(chatId,'Atenção!!! Alarme Acionado!!!');
+    }else if (bot.sendMessage == '/command3'){
+      cond = true;
     }
+    if(cond)
+    {
+      bot.sendMessage(chatId,'Não Detectado');
+      cond = false;
+    }
+    
     console.log(message.from.id);
     let chatId = message.from.id;
     if(message.text!= "/command1" && message.text!= "/command2" & message.text!= "/command3" && message.text!= "/command4")
