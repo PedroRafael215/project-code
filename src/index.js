@@ -33,12 +33,12 @@ app.post('/arduino-sensor', (req, res) => {
     res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
   }
 
-  if (req.body && req.body.detection) {
-    const valorDetection = req.body.detection;
-    res.status(200).json({ mensagem: `Valor de detection recebido: ${valorDetection}` });
-  } else {
-    res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
-  }
+  // if (req.body && req.body.detection) {
+  //   const valorDetection = req.body.detection;
+  //   res.status(200).json({ mensagem: `Valor de detection recebido: ${valorDetection}` });
+  // } else {
+  //   res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
+  // }
 
   Sensor = req.body[0].detection?req.body[0].detection:req.body.detection;
   setSensor = 'on';
