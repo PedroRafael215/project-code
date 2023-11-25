@@ -1,6 +1,3 @@
-
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const telegramBot = require('node-telegram-bot-api');
@@ -31,6 +28,10 @@ app.post('/arduino', (req, res) => {
   
   // Verifica se a variável "detection" está presente no corpo da requisição
   console.log('Variável:' + req.body[0].detection);
+  console.log('Variável:' + req.body[0].detection);
+  console.log('Variável:' + req.body[0].detection);
+  console.log('Variável:' + req.body[0].detection);
+  console.log('Variável:' + req.body[0].detection);
   
   if (req.body[0] && req.body[0].detection) {
     const valorDetection = req.body[0].detection;
@@ -47,19 +48,19 @@ app.post('/arduino', (req, res) => {
   }
 //-----------------------------------------
   
-Sensor = req.body[0].detection;
+Sensor = req.body[0].detection? req.body[0].detection :req.body.detection;
 setSensor = 'on';
 
-  
-
 });
-
 app.listen( 
  {
   host:'0.0.0.0',
   port: process.env.PORT? Number(process.env.PORT): 3333,
   
 });
+
+console.log('HTTP Server Running');
+
 
 // Inicialize o bot apenas uma vez
 if (!botInitialized) {
@@ -97,5 +98,3 @@ if (!botInitialized) {
 
 });
 }
-
-console.log('HTTP Server Running');
