@@ -23,6 +23,44 @@ const bot = new telegramBot(TOKEN, {polling: true});
 
 let botInitialized = false;
 
+
+
+app.use(bodyParser.json());
+
+app.post('/arduino', (req, res) => {
+  
+  // Verifica se a variável "detection" está presente no corpo da requisição
+  console.log('Variável:' + req.body[0].detection);
+  
+  if (req.body[0] && req.body[0].detection) {
+    const valorDetection = req.body[0].detection;
+    res.status(200).json({ mensagem: `Valor de detection recebido: ${valorDetection}` });
+  } else {
+    res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
+  }
+
+  if (req.body && req.body.detection) {
+    const valorDetection = req.body.detection;
+    res.status(200).json({ mensagem: `Valor de detection recebido: ${valorDetection}` });
+  } else {
+    res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
+  }
+//-----------------------------------------
+  
+Sensor = req.body[0].detection;
+setSensor = 'on';
+
+  
+
+});
+
+app.listen( 
+ {
+  host:'0.0.0.0',
+  port: process.env.PORT? Number(process.env.PORT): 3333,
+  
+});
+
 // Inicialize o bot apenas uma vez
 if (!botInitialized) {
   botInitialized = true;
@@ -59,41 +97,5 @@ if (!botInitialized) {
 
 });
 }
-
-app.use(bodyParser.json());
-
-app.post('/arduino', (req, res) => {
-  
-  // Verifica se a variável "detection" está presente no corpo da requisição
-  console.log('Variável:' + req.body[0].detection);
-  
-  if (req.body[0] && req.body[0].detection) {
-    const valorDetection = req.body[0].detection;
-    res.status(200).json({ mensagem: `Valor de detection recebido: ${valorDetection}` });
-  } else {
-    res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
-  }
-
-  if (req.body && req.body.detection) {
-    const valorDetection = req.body.detection;
-    res.status(200).json({ mensagem: `Valor de detection recebido: ${valorDetection}` });
-  } else {
-    res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
-  }
-//-----------------------------------------
-  
-Sensor = req.body[0].detection;
- setSensor = 'on';
-
-  
-
-});
-
-app.listen( 
- {
-  host:'0.0.0.0',
-  port: process.env.PORT? Number(process.env.PORT): 3333,
-  
-});
 
 console.log('HTTP Server Running');
