@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.post('/arduino-sensor', (req, res) => {
   
   // Verifica se a variável "detection" está presente no corpo da requisição
-  console.log('Variável:' + req.body[0].detection);
+  //console.log('Variável:' + req.body[0].detection);
   
   if (req.body[0] && req.body[0].detection) {
     const valorDetection = req.body[0].detection;
