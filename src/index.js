@@ -69,7 +69,7 @@ let setSensor = 'on';
 
       
 
-      if(userMessage != "/command1" || userMessage == "/command2")
+      if(userMessage != "/command1" || userMessage != "/command2")
       {
           bot.sendMessage(chatId, 'Por favor, especifique um comando válido disponível');
           bot.sendMessage(chatId, `/command1 - para Habilitar o Sensor\n/command2 - para Desabilitar o Sensor`);
