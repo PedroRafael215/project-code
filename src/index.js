@@ -40,7 +40,7 @@ app.post('/arduino-sensor', (req, res) => {
   //   res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
   // }
 
-  Sensor = req.body[0].detection?req.body[0].detection:req.body.detection;
+  Sensor = req.body[0].detection;
   setSensor = 'on';
 //-----------------------------------------
 
@@ -56,7 +56,7 @@ app.listen(
 console.log('HTTP Server Running');
 
 
-  if(bot.isPolling){
+  if(!bot.isPolling){
   bot.on('message', (message) => {
       console.log("Pedro says: "+ message.text);
       //console.log(message.from.id);
@@ -67,19 +67,15 @@ console.log('HTTP Server Running');
       if( userMessage == "/command2" )
       {
         setSensor = 'off'
-      }else
+      }
       if( userMessage == "/command1" )
       {
         setSensor = 'on';
-      }else
-
-
+      }
       if( Sensor == "-DETECTADO-" && setSensor != 'off' )
       {
         bot.sendMessage("ALERTA\n\nAlarme acionado em:\n");
-      }else
-      
-
+      }
       if(userMessage != "/command1" || userMessage != "/command2")
       {
           bot.sendMessage(chatId, 'Por favor, especifique um comando válido disponível');
