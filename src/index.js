@@ -14,9 +14,9 @@ const port = 3000;
 var d = new Date(); 
 let dataAtual = d.toLocaleString('pt-BR');
 
-if(!bot.isPolling){
+
 const bot = new telegramBot(TOKEN, {polling: true});
-}
+
 
 
 app.use(bodyParser.json());
