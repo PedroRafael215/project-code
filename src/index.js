@@ -40,7 +40,7 @@ app.post('/arduino-sensor', (req, res) => {
     res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
   }
 
-  Sensor = req.body[0].detection;
+  Sensor = req.body[0].detection?req.body[0].detection:req.body.detection;
   setSensor = 'on';
 //-----------------------------------------
 
