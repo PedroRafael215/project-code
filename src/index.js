@@ -46,7 +46,7 @@ app.post('/arduino-sensor', (req, res) => {
     console.log('Variável:' + req.body[0].detection);
 
 
-    if(req.body[0].detection == "-DETECTED-"){
+    if(req.body[0].detection == "DETECTED"){
       
     console.log('Variável:' + req.body[0].detection);
       enviarMensagemAoBot();
@@ -59,7 +59,7 @@ app.post('/arduino-sensor', (req, res) => {
 });
 
 async function enviarMensagemAoBot() {
-  var d = new Date(); 
+  var d = new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"});
 let dataAtual = d.toLocaleString('pt-BR');
     // Envia uma mensagem para um chat específico ou para todos os chats, dependendo dos requisitos
     const chatIdBot = chatId; // Substitua pelo ID real do chat
