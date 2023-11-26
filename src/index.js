@@ -68,7 +68,7 @@ app.post('/arduino-sensor', (req, res) => {
    }
    else 
    {
-   console.log("Variavél detection não presente. erro");// res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
+   console.log("Value DETECTED não presente. Sem detecção");// res.status(400).json({ erro: 'Variável "detection" ausente no corpo da requisição JSON' });
    }
 });
 
