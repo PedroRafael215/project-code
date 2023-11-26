@@ -8,7 +8,7 @@ require('dotenv').config();
 const TOKEN = process.env.TOKEN;
 let botInitialized = false;
 let BOT;
-let chatId;
+let chatId = 716656717;
 const app = express();
 const port = 3000;
 
@@ -68,7 +68,7 @@ console.log('CHATID ' + chatId);
 
 async function enviarMensagemAoBot() {
  
-  if (chatId == Number){
+  if (Number(chatId)){
     var d = new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"});
     let dataAtual = d.toLocaleString('pt-BR');
     // Envia uma mensagem para um chat específico ou para todos os chats, dependendo dos requisitos
