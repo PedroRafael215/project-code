@@ -44,7 +44,7 @@ app.post('/arduino-sensor', (req, res) => {
   
   // Verifica se a variável "detection" está presente no corpo da requisição
   
-  if (req.body[0] && req.body[0].detection) {
+  if (req.body[0].detection == "DETECTED") {
     console.log('Variável:' + req.body[0].detection);
 
 
