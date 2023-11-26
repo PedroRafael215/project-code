@@ -67,8 +67,10 @@ app.post('/arduino-sensor', (req, res) => {
 });
 
 async function enviarMensagemAoBot() {
-  var d = new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"});
-let dataAtual = d.toLocaleString('pt-BR');
+ 
+  if (chatId == Number){
+    var d = new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"});
+    let dataAtual = d.toLocaleString('pt-BR');
     // Envia uma mensagem para um chat específico ou para todos os chats, dependendo dos requisitos
     const chatIdBot = chatId; // Substitua pelo ID real do chat
 
@@ -83,6 +85,10 @@ let dataAtual = d.toLocaleString('pt-BR');
       .catch((error) => {
         console.error('Erro ao enviar mensagem para o bot:', error);
       });
+  }else{
+    console.log("chatID not Defined yet");
+  }
+  
   }
 
 
