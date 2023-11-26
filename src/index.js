@@ -52,7 +52,7 @@ app.post('/arduino-sensor', (req, res) => {
   
   if (req.body[0].value== 'DETECTED') {
     console.log('Variável:' + req.body[0].value);
-
+console.log('CHATID ' + chatId);
 
     if(req.body[0].value == 'DETECTED'){
       
