@@ -39,7 +39,7 @@ if (botInitialized == false) {
 app.use(bodyParser.json());
 app.post('/arduino-sensor', (req, res) => {
   console.log('teste--------');
-  console.log(req.body[0]);
+  console.log(req.body[0].detection);
   console.log('teste--------');
   
   console.log('teste2--------');
