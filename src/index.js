@@ -38,6 +38,7 @@ if (botInitialized == false) {
 
 app.use(bodyParser.json());
 app.post('/arduino-sensor', (req, res) => {
+  console.log(req.body[0].detection);
   res.status(200).json({ mensagem: `Valor de detection recebido: ${req.body[0].detection}` });
   
   // Verifica se a variável "detection" está presente no corpo da requisição
