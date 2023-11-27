@@ -17,11 +17,11 @@ let getChatIdMessage= "ChatId Obtido";
 async function enviarMensagemAoBot() 
 { 
   if (Number(chatId)){
-    var d = new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"});
+    var d = new Date().toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo"});
     let dataAtual = d.toLocaleString('pt-BR');
-    // Envia uma mensagem para um chat específico ou para todos os chats, dependendo dos requisitos
-    const chatIdBot = chatId; // Substitua pelo ID real do chat
-    // Mensagem a ser enviada
+
+    const chatIdBot = chatId; // Atribui ID atual do chat
+    // Mensagem a ser enviada + data atual da detecção
     const mensagem = "ALERTA\n\nAlarme acionado em:\n" + dataAtual;
     // Envia a mensagem
     await bot.sendMessage(chatIdBot, mensagem)
