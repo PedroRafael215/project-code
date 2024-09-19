@@ -8,3 +8,5 @@ enviar notificações por meio de JSON à API desenvolvida para este projeto. A 
 os dados referentes ao sensor pela plataforma "Tago.io", aciona o BOT do Telegram projetado
 para enviar um alerta para o ChatId cadastrado, ou seja, o telefone do usuário por meio do
 aplicativo Telegram.
+
+PDF sobre o trabalho está presente no diretório raiz do projeto.
